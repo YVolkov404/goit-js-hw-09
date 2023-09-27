@@ -1,0 +1,4 @@
+const t=document.querySelector("body"),e=document.querySelector('button[data-start="start"]'),s=document.querySelector('button[data-stop="stop"]');let r=null;e.addEventListener("click",function(e){null!==(r=setInterval(()=>{t.style.backgroundColor=`#${Math.floor(16777215*Math.random()).toString(16).padStart(6,0)}`},1e3))&&(e.target.setAttribute("disabled",""),e.target.classList.add("isActive"),s.removeAttribute("disabled"),s.classList.remove("isActive"))}),s.addEventListener("click",function(s){clearInterval(r),s.target.setAttribute("disabled",""),s.target.classList.add("isActive"),t.style.removeProperty("background-color"),e.removeAttribute("disabled"),e.classList.remove("isActive")}),// default availability state for button 'Stop'
+s.setAttribute("disabled",""),s.classList.add("isActive");//# sourceMappingURL=01-color-switcher.19e2220b.js.map
+
+//# sourceMappingURL=01-color-switcher.19e2220b.js.map

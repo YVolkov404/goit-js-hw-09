@@ -1,0 +1,4 @@
+!function(){let t=document.querySelector("body"),e=document.querySelector('button[data-start="start"]'),r=document.querySelector('button[data-stop="stop"]'),s=null;e.addEventListener("click",function(e){null!==(s=setInterval(()=>{t.style.backgroundColor=`#${Math.floor(16777215*Math.random()).toString(16).padStart(6,0)}`},1e3))&&(e.target.setAttribute("disabled",""),e.target.classList.add("isActive"),r.removeAttribute("disabled"),r.classList.remove("isActive"))}),r.addEventListener("click",function(r){clearInterval(s),r.target.setAttribute("disabled",""),r.target.classList.add("isActive"),t.style.removeProperty("background-color"),e.removeAttribute("disabled"),e.classList.remove("isActive")}),// default availability state for button 'Stop'
+r.setAttribute("disabled",""),r.classList.add("isActive")}();//# sourceMappingURL=01-color-switcher.0fa81a13.js.map
+
+//# sourceMappingURL=01-color-switcher.0fa81a13.js.map
