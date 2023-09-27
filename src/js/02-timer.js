@@ -41,7 +41,6 @@ function startTimerOnBtnClick (e) {
   };
 
  timerId = setInterval(() => {
-
     const newDate = Date.now();
 
     const dateCounter = (fr.selectedDates[0] - newDate);

@@ -9,6 +9,7 @@ stopBtn.addEventListener('click', onStopBtnFreeze);
 
 // default availability state for button 'Stop'
 stopBtn.setAttribute('disabled', '');
+stopBtn.classList.add('isActive');
 
 function onStartBtnAction(e) {
   timerId = setInterval(() => {
@@ -17,16 +18,23 @@ function onStartBtnAction(e) {
 
   if (timerId !== null) {
     e.target.setAttribute('disabled', '');
+    e.target.classList.add('isActive');
+
     stopBtn.removeAttribute('disabled');
+    stopBtn.classList.remove('isActive');
   }
 }
 
 function onStopBtnFreeze(e) {
   clearInterval(timerId);
+
   e.target.setAttribute('disabled', '');
+  e.target.classList.add('isActive');
+
   body.style.removeProperty('background-color');
+
   startBtn.removeAttribute('disabled');
-  // test(e);
+  startBtn.classList.remove('isActive');
 }
 
 function getRandomHexColor() {
@@ -34,13 +42,3 @@ function getRandomHexColor() {
     .toString(16)
     .padStart(6, 0)}`;
 }
-
-// function test(e) {
-//   if (e.target.hasAttribute('disabled')) {
-//     e.target.setAttribute('disabled', '');
-//   } else {
-//     e.target.removeAttribute('disabled');
-//   }
-// }
-
-
