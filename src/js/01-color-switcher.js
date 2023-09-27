@@ -42,3 +42,5 @@ function getRandomHexColor() {
 //     e.target.removeAttribute('disabled');
 //   }
 // }
+
+

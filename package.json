@@ -18,7 +18,9 @@
     "url": "https://github.com/YVolkov404/goit-js-hw-09/issues"
   },
   "dependencies": {
-    "modern-normalize": "^2.0.0"
+    "flatpickr": "^4.6.13",
+    "modern-normalize": "^2.0.0",
+    "notiflix": "^3.2.6"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
