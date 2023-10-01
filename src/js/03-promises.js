@@ -6,10 +6,6 @@ const inputDelay = document.querySelector("input[name='delay']");
 const inputStep = document.querySelector("input[name='step']");
 const inputAmount = document.querySelector("input[name='amount']");
 
-let delay = 0;
-const amount = Number(inputAmount.value);
-const step = Number(inputStep.value);
-
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
   return new Promise((resolve, reject) => {
@@ -22,6 +18,10 @@ function createPromise(position, delay) {
     }, delay);
   });
 }
+
+let delay = 0;
+const amount = Number(inputAmount.value);
+const step = Number(inputStep.value);
 
 for (let i = 1; i <= amount; i++) {
   delay = Number(inputDelay.value);
