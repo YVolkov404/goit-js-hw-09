@@ -1,6 +1,6 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
-require("flatpickr/dist/themes/confetti.css");
+require('flatpickr/dist/themes/confetti.css');
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { uk } from 'flatpickr/dist/l10n/uk.js';
 import { flatpickrOptions } from './04-options';
@@ -24,26 +24,28 @@ startTimerBtn.addEventListener('click', startTimerOnBtnClick);
 
 const date = new Date();
 
-function onInputDatetime (e) {
+function onInputDatetime(e) {
   if (fr.selectedDates[0] > date) {
     startTimerBtn.removeAttribute('disabled');
-    startTimerBtn.classList.add("isActive");
+    startTimerBtn.classList.add('isActive');
   } else {
     Notify.warning('На жаль обрати дату з минулого не можливо!', notifyOptions);
-    Notify.failure('Оберіть дату, що має наступити в майбутньому!', notifyOptions);
+    Notify.failure(
+      'Оберіть дату, що має наступити в майбутньому!',
+      notifyOptions
+    );
   }
 }
 
-function startTimerOnBtnClick (e) {
+function startTimerOnBtnClick(e) {
+  function addLeadingZero(value) {
+    return String(value).padStart(2, '0');
+  }
 
-  function addLeadingZero (value) {
-    return String(value).padStart(2, "0");
-  };
-
- timerId = setInterval(() => {
+  timerId = setInterval(() => {
     const newDate = Date.now();
 
-    const dateCounter = (fr.selectedDates[0] - newDate);
+    const dateCounter = fr.selectedDates[0] - newDate;
 
     let timerData = e.target.textContent;
 
@@ -54,16 +56,18 @@ function startTimerOnBtnClick (e) {
       span[1].textContent = addLeadingZero(`${timerData.hours}`);
       span[2].textContent = addLeadingZero(`${timerData.minutes}`);
       span[3].textContent = addLeadingZero(`${timerData.seconds}`);
+      if (span[3].textContent === '00') {
+        clearInterval(timerId);
+      }
     }
 
     timer(timerData);
-
-  },1000);
+  }, 1000);
 
   startTimerBtn.setAttribute('disabled', '');
-  startTimerBtn.classList.remove("isActive");
-};
+  startTimerBtn.classList.remove('isActive');
+}
 
-function onClickDatetime (e) {
+function onClickDatetime(e) {
   clearInterval(timerId);
 }

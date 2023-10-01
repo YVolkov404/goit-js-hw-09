@@ -19,16 +19,15 @@ function createPromise(position, delay) {
   });
 }
 
-let delay = 0;
-const amount = Number(inputAmount.value);
-const step = Number(inputStep.value);
+form.addEventListener('submit', e => {
+  e.preventDefault();
 
-for (let i = 1; i <= amount; i++) {
-  delay = Number(inputDelay.value);
-  let position = i;
+  let delay = Number(inputDelay.value);
+  let step = Number(inputStep.value);
+  const amount = Number(inputAmount.value);
 
-  form.addEventListener('submit', e => {
-    e.preventDefault();
+  for (let i = 1; i <= amount; i++) {
+    let position = i;
 
     createPromise(position, delay)
       .then(({ position, delay }) => {
@@ -45,5 +44,5 @@ for (let i = 1; i <= amount; i++) {
       });
 
     delay += step;
-  });
-}
+  }
+});
