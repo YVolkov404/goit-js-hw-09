@@ -7,23 +7,20 @@ export let flatpickrOptions = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     selectedDates[0];
-  }
+  },
 };
 
 export const notifyOptions = {
   width: '350px',
-  timeout: 3000,
+  timeout: 5000,
   distance: '15px',
   position: 'center-top',
-  fontSize: '14px',
+  fontSize: '16px',
   clickToClose: true,
-  failure: {
-    background: '#eebf31',
+  success: {
+    background: '#32c682',
   },
-  warning: {
+  failure: {
     background: '#ff5549',
   },
 };
-
-
-
