@@ -1,10 +1,14 @@
 export let flatpickrOptions = {
   locale: 'uk',
   enableTime: true,
+  enableMinutes: false,
   position: 'auto center',
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
+  onChange(dateStr) {
+    dateStr;
+  },
   onClose(selectedDates) {
     selectedDates[0];
   },

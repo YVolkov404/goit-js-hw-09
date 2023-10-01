@@ -9,7 +9,6 @@ import { convertMs } from './05-convert-ms-fn';
 
 const datetimePicker = document.querySelector('input#datetime-picker');
 const startTimerBtn = document.querySelector('button[data-start=""]');
-const stopTimerAction = document.querySelector('input#datetime-picker');
 const span = document.querySelectorAll('span.value');
 
 let timerId = null;
@@ -19,7 +18,6 @@ startTimerBtn.setAttribute('disabled', '');
 const fr = flatpickr(datetimePicker, flatpickrOptions);
 
 datetimePicker.addEventListener('input', onInputDatetime);
-stopTimerAction.addEventListener('click', onClickDatetime);
 startTimerBtn.addEventListener('click', startTimerOnBtnClick);
 
 const date = new Date();
@@ -29,6 +27,8 @@ function onInputDatetime(e) {
     startTimerBtn.removeAttribute('disabled');
     startTimerBtn.classList.add('isActive');
   } else {
+    clearInterval(timerId);
+    fr.close();
     Notify.warning('На жаль обрати дату з минулого не можливо!', notifyOptions);
     Notify.failure(
       'Оберіть дату, що має наступити в майбутньому!',
@@ -57,7 +57,7 @@ function startTimerOnBtnClick(e) {
       span[2].textContent = addLeadingZero(`${timerData.minutes}`);
       span[3].textContent = addLeadingZero(`${timerData.seconds}`);
       if (span[3].textContent === '00') {
-        onClickDatetime(e);
+        clearInterval(timerId);
       }
     }
 
@@ -66,8 +66,4 @@ function startTimerOnBtnClick(e) {
 
   startTimerBtn.setAttribute('disabled', '');
   startTimerBtn.classList.remove('isActive');
-}
-
-function onClickDatetime(e) {
-  clearInterval(timerId);
 }
