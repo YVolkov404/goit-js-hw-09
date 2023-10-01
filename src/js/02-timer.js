@@ -29,6 +29,9 @@ function onInputDatetime(e) {
   } else {
     clearInterval(timerId);
     fr.close();
+    [...span].map((value, index, array) => {
+      index === 0 ? (value.textContent = '000') : (value.textContent = '00');
+    });
     Notify.warning('На жаль обрати дату з минулого не можливо!', notifyOptions);
     Notify.failure(
       'Оберіть дату, що має наступити в майбутньому!',
