@@ -9,13 +9,14 @@ const inputAmount = document.querySelector("input[name='amount']");
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
   return new Promise((resolve, reject) => {
-    setInterval(() => {
+    timerId = setTimeout(() => {
       if (shouldResolve) {
         resolve({ position, delay });
       } else {
         reject({ position, delay });
       }
     }, delay);
+    document.querySelector('form').reset();
   });
 }
 

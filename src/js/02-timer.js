@@ -57,7 +57,7 @@ function startTimerOnBtnClick(e) {
       span[2].textContent = addLeadingZero(`${timerData.minutes}`);
       span[3].textContent = addLeadingZero(`${timerData.seconds}`);
       if (span[3].textContent === '00') {
-        clearInterval(timerId);
+        onClickDatetime(e);
       }
     }
 
