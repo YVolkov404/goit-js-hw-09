@@ -21,7 +21,7 @@ form.addEventListener('submit', e => {
   e.preventDefault();
 
   let delay = Number(e.target.delay.value);
-  const step = Number(e.target.step.value);
+  let step = Number(e.target.step.value);
   const amount = Number(e.target.amount.value);
 
   for (let i = 1; i <= amount; i++) {
